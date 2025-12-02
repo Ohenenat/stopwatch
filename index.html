@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock - Advanced Time Management</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Top Controls -->
+        <div class="controls-top">
+            <button id="themeToggle" class="btn btn-theme" title="Toggle Dark/Light Mode">🌙</button>
+            <button id="formatToggle" class="btn btn-format" title="Toggle 12/24 Hour Format">24H</button>
+        </div>
+
+        <!-- Main Clock Section -->
+        <div class="clock-section">
+            <!-- Date Display -->
+            <div class="date-display" id="dateDisplay">Monday, January 1, 2025</div>
+
+            <!-- Digital Clock -->
+            <div class="clock-display">
+                <div class="time-container">
+                    <span class="time-segment" id="hours">00</span>
+                    <span class="colon">:</span>
+                    <span class="time-segment" id="minutes">00</span>
+                    <span class="colon">:</span>
+                    <span class="time-segment" id="seconds">00</span>
+                </div>
+                <div class="ampm-display" id="ampmDisplay"></div>
+            </div>
+        </div>
+
+        <!-- Tabs Navigation -->
+        <div class="tabs-container">
+            <button class="tab-btn active" data-tab="tab-tools">Tools</button>
+            <button class="tab-btn" data-tab="tab-settings">Settings</button>
+        </div>
+
+        <!-- Tools Tab -->
+        <div id="tab-tools" class="tab-content active">
+            <!-- Alarm System -->
+            <div class="card alarm-section">
+                <h3>⏰ Alarm</h3>
+                <div class="alarm-inputs">
+                    <input type="time" id="alarmTime" class="input-field">
+                    <button id="setAlarmBtn" class="btn btn-primary">Set Alarm</button>
+                    <button id="cancelAlarmBtn" class="btn btn-secondary" style="display: none;">Cancel</button>
+                </div>
+                <div id="alarmStatus" class="status-display"></div>
+                <div id="snoozeContainer" style="display: none; margin-top: 10px;">
+                    <button id="snoozeBtn" class="btn btn-primary">Snooze (5 min)</button>
+                </div>
+            </div>
+
+            <!-- Stopwatch -->
+            <div class="card stopwatch-section">
+                <h3>⏱️ Stopwatch</h3>
+                <div class="stopwatch-display" id="stopwatchDisplay">00:00:00.00</div>
+                <div class="stopwatch-controls">
+                    <button id="startStopBtn" class="btn btn-primary">Start</button>
+                    <button id="resetStopwatchBtn" class="btn btn-secondary">Reset</button>
+                    <button id="lapBtn" class="btn btn-secondary">Lap</button>
+                </div>
+                <div class="lap-times" id="lapTimes"></div>
+            </div>
+
+            <!-- Countdown Timer -->
+            <div class="card timer-section">
+                <h3>⏳ Timer</h3>
+                <div class="timer-inputs">
+                    <div class="input-group">
+                        <label>Minutes</label>
+                        <input type="number" id="timerMinutes" class="input-field" min="0" max="59" placeholder="0">
+                    </div>
+                    <div class="input-group">
+                        <label>Seconds</label>
+                        <input type="number" id="timerSeconds" class="input-field" min="0" max="59" placeholder="0">
+                    </div>
+                </div>
+                <div class="timer-display" id="timerDisplay" style="display: none;">00:00</div>
+                <div class="timer-controls">
+                    <button id="startTimerBtn" class="btn btn-primary">Start Timer</button>
+                    <button id="pauseTimerBtn" class="btn btn-secondary" style="display: none;">Pause</button>
+                    <button id="resetTimerBtn" class="btn btn-secondary">Reset</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Settings Tab -->
+        <div id="tab-settings" class="tab-content">
+            <!-- Background Themes -->
+            <div class="card theme-settings">
+                <h3>🎨 Background Themes</h3>
+                <div class="theme-options">
+                    <button class="theme-option" data-theme="gradient-blue" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></button>
+                    <button class="theme-option" data-theme="gradient-sunset" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></button>
+                    <button class="theme-option" data-theme="gradient-ocean" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></button>
+                    <button class="theme-option" data-theme="gradient-forest" style="background: linear-gradient(135deg, #134e5e 0%, #71b280 100%);"></button>
+                    <button class="theme-option" data-theme="color-dark" style="background: #1a1a1a;"></button>
+                    <button class="theme-option" data-theme="color-light" style="background: #ffffff; border: 2px solid #ccc;"></button>
+                    <button class="theme-option" data-theme="color-purple" style="background: #6c3483;"></button>
+                    <button class="theme-option" data-theme="color-green" style="background: #16a085;"></button>
+                </div>
+            </div>
+
+            <!-- Weather Widget -->
+            <div class="card weather-section">
+                <h3>🌤️ Weather Widget</h3>
+                <div class="weather-inputs">
+                    <input type="text" id="cityInput" class="input-field" placeholder="Enter city name">
+                    <button id="getWeatherBtn" class="btn btn-primary">Get Weather</button>
+                </div>
+                <div id="weatherDisplay" class="weather-display"></div>
+            </div>
+
+            <!-- About -->
+            <div class="card about-section">
+                <h3>ℹ️ About</h3>
+                <p>Advanced Digital Clock with multiple features including alarm, stopwatch, timer, custom themes, and weather information.</p>
+                <p><strong>Version:</strong> 1.0.0</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio element for alarm and timer sounds -->
+    <audio id="alarmSound" preload="auto">
+        <source src="data:audio/wav;base64,UklGRiYAAABXQVZFZm10IBAAAAABAAEAQB8AAAB9AAACABAAZGF0YQIAAAAAAA==" type="audio/wav">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>

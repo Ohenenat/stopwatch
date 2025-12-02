@@ -1,0 +1,632 @@
+:root {
+    --primary-color: #667eea;
+    --secondary-color: #764ba2;
+    --text-color: #ffffff;
+    --bg-color: #1a1a1a;
+    --card-bg: rgba(255, 255, 255, 0.1);
+    --shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body.light-mode {
+    --text-color: #333333;
+    --bg-color: #f5f5f5;
+    --card-bg: rgba(0, 0, 0, 0.05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: var(--text-color);
+    transition: var(--transition);
+    overflow-y: auto;
+    padding: 20px;
+}
+
+body.light-mode {
+    background: #ffffff;
+}
+
+/* Background Themes */
+body.theme-gradient-blue {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+body.theme-gradient-sunset {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+body.theme-gradient-ocean {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+body.theme-gradient-forest {
+    background: linear-gradient(135deg, #134e5e 0%, #71b280 100%);
+}
+
+body.theme-color-dark {
+    background: #1a1a1a;
+}
+
+body.theme-color-light {
+    background: #ffffff;
+}
+
+body.theme-color-purple {
+    background: #6c3483;
+}
+
+body.theme-color-green {
+    background: #16a085;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Controls */
+.controls-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    gap: 10px;
+}
+
+.btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: var(--transition);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn-theme,
+.btn-format {
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--text-color);
+    font-size: 18px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-color);
+}
+
+body.light-mode .btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Clock Section */
+.clock-section {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px 30px;
+    text-align: center;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.date-display {
+    font-size: 18px;
+    font-weight: 300;
+    margin-bottom: 20px;
+    opacity: 0.9;
+    letter-spacing: 1px;
+}
+
+.clock-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.time-container {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.time-segment {
+    font-size: 72px;
+    font-weight: bold;
+    line-height: 1;
+    letter-spacing: 2px;
+    font-family: 'Courier New', monospace;
+    min-width: 80px;
+    text-align: center;
+}
+
+.colon {
+    font-size: 72px;
+    font-weight: bold;
+    margin: 0 5px;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%,
+    49% {
+        opacity: 1;
+    }
+    50%,
+    100% {
+        opacity: 0.3;
+    }
+}
+
+.ampm-display {
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    height: 30px;
+}
+
+/* Tabs */
+.tabs-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 5px;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    background: transparent;
+    color: var(--text-color);
+    cursor: pointer;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: var(--transition);
+    opacity: 0.6;
+}
+
+.tab-btn.active {
+    background: rgba(255, 255, 255, 0.2);
+    opacity: 1;
+}
+
+.tab-btn:hover {
+    opacity: 0.9;
+}
+
+.tab-content {
+    display: none;
+    animation: fadeIn 0.3s ease-in;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Cards */
+.card {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card h3 {
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* Inputs */
+.input-field {
+    padding: 10px 15px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-color);
+    font-size: 14px;
+    transition: var(--transition);
+}
+
+body.light-mode .input-field {
+    background: rgba(0, 0, 0, 0.05);
+    border-color: rgba(0, 0, 0, 0.2);
+    color: #333;
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.input-field::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+body.light-mode .input-field::placeholder {
+    color: rgba(0, 0, 0, 0.4);
+}
+
+/* Alarm Section */
+.alarm-inputs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.alarm-inputs input {
+    flex: 1;
+    min-width: 120px;
+}
+
+.alarm-inputs .btn {
+    flex: 0 1 auto;
+}
+
+.status-display {
+    padding: 10px 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    font-size: 14px;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.status-display.alarm-active {
+    background: rgba(76, 175, 80, 0.3);
+    color: #4caf50;
+}
+
+.status-display.alarm-ringing {
+    background: rgba(255, 193, 7, 0.3);
+    color: #ffc107;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+/* Stopwatch Section */
+.stopwatch-display {
+    font-size: 48px;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+.stopwatch-controls,
+.timer-controls {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.stopwatch-controls .btn,
+.timer-controls .btn {
+    flex: 1;
+    min-width: 80px;
+}
+
+.lap-times {
+    margin-top: 15px;
+    max-height: 200px;
+    overflow-y: auto;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.lap-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+}
+
+.lap-item:last-child {
+    border-bottom: none;
+}
+
+/* Timer Section */
+.timer-inputs {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.input-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    font-size: 12px;
+    margin-bottom: 5px;
+    opacity: 0.8;
+}
+
+.input-group input {
+    width: 100%;
+}
+
+.timer-display {
+    font-size: 56px;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+.timer-display.warning {
+    color: #ff9800;
+    animation: pulse 0.5s infinite;
+}
+
+.timer-display.danger {
+    color: #f44336;
+    animation: pulse 0.3s infinite;
+}
+
+/* Theme Settings */
+.theme-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    gap: 10px;
+}
+
+.theme-option {
+    width: 100%;
+    aspect-ratio: 1;
+    border: 3px solid transparent;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.theme-option:hover {
+    transform: scale(1.05);
+}
+
+.theme-option.active {
+    border-color: white;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+body.light-mode .theme-option.active {
+    border-color: #333;
+}
+
+/* Weather Section */
+.weather-inputs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.weather-inputs input {
+    flex: 1;
+}
+
+.weather-inputs .btn {
+    flex: 0 1 auto;
+}
+
+.weather-display {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.weather-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.weather-icon {
+    font-size: 48px;
+}
+
+.weather-details h4 {
+    margin-bottom: 5px;
+}
+
+.weather-details p {
+    opacity: 0.9;
+    font-size: 14px;
+}
+
+.weather-temp {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+/* About Section */
+.about-section p {
+    margin-bottom: 10px;
+    line-height: 1.6;
+    opacity: 0.95;
+}
+
+.about-section p:last-child {
+    margin-bottom: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container {
+        padding: 0;
+    }
+
+    .clock-section {
+        padding: 30px 20px;
+    }
+
+    .time-segment {
+        font-size: 54px;
+        min-width: 60px;
+    }
+
+    .colon {
+        font-size: 54px;
+        margin: 0 3px;
+    }
+
+    .ampm-display {
+        font-size: 18px;
+    }
+
+    .stopwatch-display {
+        font-size: 36px;
+    }
+
+    .timer-display {
+        font-size: 42px;
+    }
+
+    .date-display {
+        font-size: 16px;
+    }
+
+    .theme-options {
+        grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+    }
+}
+
+@media (max-width: 400px) {
+    .time-segment {
+        font-size: 42px;
+        min-width: 48px;
+    }
+
+    .colon {
+        font-size: 42px;
+        margin: 0 2px;
+    }
+
+    .stopwatch-display {
+        font-size: 28px;
+    }
+
+    .timer-display {
+        font-size: 32px;
+    }
+
+    .card {
+        padding: 15px;
+    }
+
+    .controls-top {
+        margin-bottom: 20px;
+    }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+body.light-mode ::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+body.light-mode ::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.4);
+}
