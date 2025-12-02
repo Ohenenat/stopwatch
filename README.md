@@ -1,6 +1,6 @@
 # Advanced Digital Clock ⏰
 
-A feature-rich digital clock web application with alarm, stopwatch, timer, weather widget, and customizable themes.
+A feature-rich digital clock web application with alarm, stopwatch, timer, weather widget, and customizable themes
 
 ## Features
 
